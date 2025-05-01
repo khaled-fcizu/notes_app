@@ -26,6 +26,7 @@ class CustomTextField extends StatelessWidget {
           borderSide: BorderSide(color: kPrimaryColor),
         ),
         hintText: hintText,
+        hintStyle: TextStyle(color: kPrimaryColor),
       ),
     );
   }
