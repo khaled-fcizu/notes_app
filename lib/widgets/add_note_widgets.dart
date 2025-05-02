@@ -40,9 +40,13 @@ class _AddNoteWidgetsState extends State<AddNoteWidgets> {
           CustomAddNoteButton(
             onTap: () {
               if (formKey.currentState!.validate()) {
-                formKey.currentState!.save();
+                // chick validate
+                formKey.currentState!
+                    .save(); // if validte return null
               } else {
-                autovalidateMode = AutovalidateMode.always;
+                autovalidateMode =
+                    AutovalidateMode
+                        .always; // if validte return value
                 setState(() {});
               }
             },
