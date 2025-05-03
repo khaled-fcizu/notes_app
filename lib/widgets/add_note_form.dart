@@ -1,15 +1,18 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:notes_app/cubits/add%20note%20cubit/add_note_cubit.dart';
+import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/widgets/custom_add_note_button.dart';
 import 'package:notes_app/widgets/custom_text_field.dart';
 
-class AddNoteWidgets extends StatefulWidget {
-  const AddNoteWidgets({super.key});
+class AddNoteForm extends StatefulWidget {
+  const AddNoteForm({super.key});
 
   @override
-  State<AddNoteWidgets> createState() => _AddNoteWidgetsState();
+  State<AddNoteForm> createState() => _AddNoteFormState();
 }
 
-class _AddNoteWidgetsState extends State<AddNoteWidgets> {
+class _AddNoteFormState extends State<AddNoteForm> {
   GlobalKey<FormState> formKey = GlobalKey();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   String? title;
@@ -43,6 +46,15 @@ class _AddNoteWidgetsState extends State<AddNoteWidgets> {
                 // chick validate
                 formKey.currentState!
                     .save(); // if validte return null
+                var noteModel = NoteModel(
+                  title: title!,
+                  subTitle: subTitle!,
+                  date: DateTime.now().toString(),
+                  color: Colors.black.value,
+                );
+                BlocProvider.of<AddNoteCubit>(
+                  context,
+                ).addNote(noteModel);
               } else {
                 autovalidateMode =
                     AutovalidateMode
