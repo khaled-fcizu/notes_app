@@ -46,12 +46,14 @@ class _AddNoteFormState extends State<AddNoteForm> {
                 // chick validate
                 formKey.currentState!
                     .save(); // if validte return null
+
                 var noteModel = NoteModel(
                   title: title!,
                   subTitle: subTitle!,
                   date: DateTime.now().toString(),
-                  color: Colors.black.value,
+                  color: Colors.blue.value,
                 );
+
                 BlocProvider.of<AddNoteCubit>(
                   context,
                 ).addNote(noteModel);
