@@ -1,4 +1,6 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:notes_app/cubits/add%20note%20cubit/add_note_cubit.dart';
 import 'package:notes_app/widgets/color_item.dart';
 
 class ColorItemListView extends StatefulWidget {
@@ -10,11 +12,11 @@ class ColorItemListView extends StatefulWidget {
 
 class _ColorItemListViewState extends State<ColorItemListView> {
   List<Color> colorsList = [
-    Color(0xffFB3640),
-    Color(0xff605F5E),
-    Color(0xff1D3461),
-    Color(0xff1F487E),
-    Color(0xff247BA0),
+    Color(0xffC1AE9F),
+    Color(0xff184663),
+    Color(0xff137C60),
+    Color(0xffBC8224),
+    Color(0xffBEDCFE),
   ];
   int currentIndex = 0;
   @override
@@ -30,6 +32,8 @@ class _ColorItemListViewState extends State<ColorItemListView> {
             child: GestureDetector(
               onTap: () {
                 currentIndex = index;
+                BlocProvider.of<AddNoteCubit>(context).color =
+                    colorsList[index];
                 setState(() {});
               },
               child: ColorItem(
