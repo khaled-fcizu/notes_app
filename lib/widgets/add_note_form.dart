@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:notes_app/cubits/add%20note%20cubit/add_note_cubit.dart';
 import 'package:notes_app/models/note_model.dart';
-import 'package:notes_app/widgets/color_item_list_view.dart';
+import 'package:notes_app/widgets/buttom_sheet_colors_list_view.dart';
 import 'package:notes_app/widgets/custom_add_note_button.dart';
 import 'package:notes_app/widgets/custom_text_field.dart';
 
@@ -42,7 +42,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
             },
           ),
           SizedBox(height: 30),
-          ColorItemListView(),
+          ButtomSheetColorsList(),
           SizedBox(height: 30),
           CustomAddNoteButton(
             onTap: () {
