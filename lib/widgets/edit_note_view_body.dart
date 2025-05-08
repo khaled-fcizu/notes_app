@@ -39,7 +39,11 @@ class _EditNoteViewBodyState extends State<EditNoteViewBody> {
           CustomTextField(
             hintText: widget.note.title,
             onChange: (value) {
-              title = value;
+              if (value == '') {
+                title = 'empty section';
+              } else {
+                title = value;
+              }
             },
           ),
           SizedBox(height: 20),
@@ -47,7 +51,11 @@ class _EditNoteViewBodyState extends State<EditNoteViewBody> {
             hintText: widget.note.subTitle,
             maxLines: 5,
             onChange: (value) {
-              subTitle = value;
+              if (value == '') {
+                subTitle = 'empty section';
+              } else {
+                subTitle = value;
+              }
             },
           ),
           SizedBox(height: 20),
